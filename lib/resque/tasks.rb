@@ -3,7 +3,10 @@
 
 
 namespace :resque do
-  task :setup
+  task :setup do
+    # when you change the default port or set password
+    # Resque.redis = Redis.new(:url=>"redis://user:foobared@127.0.0.1:6666")
+  end
 
   desc "Start a Resque worker"
   task :work => [ :preload, :setup ] do

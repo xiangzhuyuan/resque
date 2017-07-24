@@ -4,6 +4,7 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../../lib'
 $LOAD_PATH.unshift File.dirname(__FILE__) unless $LOAD_PATH.include?(File.dirname(__FILE__))
 require 'app'
 require 'resque/server'
+# Resque.redis = Redis.new(:url=>"redis://user:foobared@127.0.0.1:6666")
 
 use Rack::ShowExceptions
 

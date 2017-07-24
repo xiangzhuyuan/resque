@@ -26,10 +26,10 @@ module Demo
     end
 
     post '/' do
-      Resque.enqueue(Job, params)
+      Resque.enqueue(Job, {a: 1, b: 2})
       redirect "/"
     end
-    
+
     post '/failing' do 
       Resque.enqueue(FailingJob, params)
       redirect "/"

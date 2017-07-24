@@ -95,6 +95,9 @@ module Resque
       Time.at(time)
     end
 
+    # job
+    # queue
+    # message -> redis list
     class QueueAccess
       def initialize(redis)
         @redis = redis
@@ -146,6 +149,7 @@ module Resque
 
       # Private: do not call
       def watch_queue(queue)
+        # check the queue name, keep distinct
         @redis.sadd(:queues, queue.to_s)
       end
 
